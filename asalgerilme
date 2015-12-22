@@ -1,0 +1,43 @@
+//Mohr Cemberi Uzerinden Asal Gerilme Hesaplama
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main ()
+{
+	//Degiskenler
+	double sigx, toxy, sigy, a, b, c, d, e, f, M, R, sig1, sig2,tomin, tomax ;
+	//Girdiler
+	cout<< "Lutfen sigma x degerini giriniz:";
+	cin>>sigx ;
+	cout<<"Lutfen sigma y degerini giriniz:";
+	cin>>sigy;
+	cout<<"Lutfen TO xy degerini giriniz:";
+	cin>>toxy;
+	//Islemler
+	a=sigx+sigy;
+	b=sigx-sigy;
+	c=b/2;
+	d=c*c;
+	e=toxy*toxy;
+	f=d+e;
+	R=sqrt(f);
+	M=a/2;
+	sig1=M+R;
+	sig2=M-R;
+	tomin=-R;
+	tomax=R;
+	
+	//Ciktilar
+	cout<<"Mohr Cemberinin merkez kordinati:"<<M<<'\n';
+	cout<<"Mohr Cemberinin Yaricapi:"<<R<<'\n';
+	cout<<"Asal Gerilmeler:"<<'\n';
+	cout<<"Sigma 1:"<<sig1<<'\n';
+	cout<<"Sigma 2:"<<sig2<<'\n';
+	cout<<"TO Maksimum:"<<tomax<<'\n';
+	cout<<"TO Minimum:"<<tomin<<'\n';
+	
+	
+	system ("PAUSE");
+	return 0;
+}
