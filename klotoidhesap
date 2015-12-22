@@ -1,0 +1,68 @@
+//Klotoid elemanlari hesaplama
+
+#include <iostream>
+#include <cmath>
+#include <stdio.h>
+
+using namespace std;
+
+#define PI 3.14159265
+
+
+int main ()
+{
+	//Degiskenler
+	
+	double R, L, A, X, Y, Xm, Ym, to, Tk, Tu, DeltR, a, b, c, d  ;
+	
+	//Girdiler
+	
+	cout << "R:" ;
+	cin  >>R;
+	cout << "L:" ;
+	cin >>L;
+	
+	
+	//Islemler
+	
+	a=L*R;
+	A = pow(a,0.5);
+ 	X = L-(pow(L,5)/(40*pow(A,4))) + (pow(L,9)/(3456*pow(A,8)));
+	Y =((pow(L,3))/(6*pow(A,2))) - ((pow(L,7))/(336*pow(A,6))) + ((pow(L,11))/(42420*pow(A,10)));
+	to =((L)/(2*R))*(57.2959);
+	b = sin (to*PI/180);
+	Xm = (X)-(R*b);
+	c = cos (to*PI/180);
+	Ym = (Y) + (R*c);
+	DeltR = Ym - R;
+	Tk = Y / b ;
+	d = (1) / tan (to*PI/180);
+	Tu = (X) - (Y*d) ;
+	
+	//Ciktilar
+	//Klotoidin son noktasinin kordinatlari
+	cout << "Klotoidin son noktasinin kordinatlari(P) :"<< endl ;
+	
+	cout << "X kordinati :" << X <<endl;
+	cout << "Y kordinati :" << Y <<endl;
+	
+	//Merkez Noktasinin Kordinatlari
+	cout << "Merkez Noktasinin Kordinatlari :" << endl ;
+	
+	cout << "Xm :" << Xm <<endl;
+	cout << "Ym :" << Ym <<endl;
+	
+	//Rakordman Payi
+	cout << "Delta R (Rakordman Payi):" << DeltR <<endl;
+	//Kisa Teget Boyu
+	cout << "Tk (Kisa Teget Boyu) :" << Tk <<endl;
+	//Uzun Teget boyu
+	cout << "Tu (Uzun Teget boyu) :" << Tu <<endl;
+	
+	
+	
+	system ("PAUSE");
+	return 0;
+	
+	
+}
